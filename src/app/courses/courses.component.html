@@ -1,0 +1,11 @@
+<div class="courses-content">
+    <h1>Our Courses</h1>
+    <p>Explore the variety of courses we offer.</p>
+    <div class="course-list">
+      <div class="course-item" *ngFor="let course of courses">
+        <h2>{{ course.title }}</h2>
+        <p>{{ course.description }}</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+</div>  
