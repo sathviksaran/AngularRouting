@@ -1,17 +1,26 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../Services/courses.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   templateUrl: './courses.component.html',
-  styleUrl: './courses.component.css'
+  styleUrl: './courses.component.css',
+  providers: [CoursesService]
 })
-export class CoursesComponent {
-  courses = [
-    { title: 'Angular Basics', description: 'Learn the basics of Angular framework.' },
-    { title: 'Advanced Angular', description: 'Deep dive into advanced topics of Angular.' },
-    { title: 'RxJS Fundamentals', description: 'Understand reactive programming with RxJS.' }
-  ];
+export class CoursesComponent implements OnInit {
+
+  courses: any;
+
+  constructor(private service: CoursesService){
+
+  }
+
+  ngOnInit(){
+    this.courses = this.service.courses;
+  }
+
 }

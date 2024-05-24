@@ -1,11 +1,23 @@
-<div class="courses-content">
+<div class="container">
+  <div class="courses-content">
     <h1>Our Courses</h1>
     <p>Explore the variety of courses we offer.</p>
-    <div class="course-list">
-      <div class="course-item" *ngFor="let course of courses">
-        <h2>{{ course.title }}</h2>
-        <p>{{ course.description }}</p>
-        <button>Learn More</button>
+    <div class="course-list" *ngFor="let course of courses">
+      <div class="course-item">
+        <div>
+            <img [src]="course.image" style="width: 220px; height: 140px;">
+        </div>
+        <div class="course-name"><h4>{{ course.name }}</h4></div>
+        <div class="course-description"><p>{{ course.description.slice(0, 80) }}...</p></div>
+        <div class="details">
+            <div class="course-type">{{ course.type }}</div>
+            <div class="course-price"><b>Price:</b> ${{ course.price }}</div>
+        </div>
+        <div class="course-buttons">
+            <button class="btn btn-buy">Buy Now</button>
+            <button class="btn btn-show" routerLink="/courses/course/{{ course.id }}">Show Details</button>
+        </div>
       </div>
     </div>
-</div>  
+  </div>  
+</div>
