@@ -1,12 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../Services/courses.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, RouterOutlet],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
   providers: [CoursesService]

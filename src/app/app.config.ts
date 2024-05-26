@@ -1,9 +1,11 @@
-import { ApplicationConfig, NgModule } from '@angular/core';
-import { provideRouter, RouterModule } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
-import { AppComponent } from './app.component';
+// import { routes } from './app.routes';
+import { routes } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { CourseGuardService } from './course-guard.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)],
+  providers: [provideRouter(routes), AuthService, CourseGuardService],
 };

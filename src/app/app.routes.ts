@@ -7,13 +7,17 @@ import { ErrorComponent } from './error/error.component';
 import { CourseComponent } from './courses/course/course.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    // {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
-    {path: 'about', component: AboutComponent},
-    {path: 'contact', component: ContactComponent},
-    {path: 'courses', component: CoursesComponent},
-    {path: 'courses/course/:id', component: CourseComponent},
-    {path: '**', component: ErrorComponent}
+    // {path: '', component: HomeComponent},
+    // // {path: '', redirectTo: 'home', pathMatch: 'full'},
+    // {path: 'home', component: HomeComponent},
+    // {path: 'about', component: AboutComponent},
+    // {path: 'contact', component: ContactComponent},
+    // {path: 'courses', component: CoursesComponent},
+    // // {path: 'courses/course/:id', component: CourseComponent},
+    // {path: 'courses', children: [
+    //     {path: 'course/:id', component: CourseComponent}
+    //     // {path: 'course/:name', component: CourseComponent}
+    // ]},
+    // {path: '**', component: ErrorComponent}
 ];
 
