@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../Services/courses.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -13,14 +13,18 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
 
-  courses: any;
+  courses: any = [];
 
-  constructor(private service: CoursesService){
+  constructor(private coursesService: CoursesService, private route: ActivatedRoute){
 
   }
 
   ngOnInit(){
-    this.courses = this.service.courses;
+    // this.courses = this.coursesService.courses;
+    // this.coursesService.getAllCourses().then((data: any) => {
+    //   this.courses = data;
+    // });
+    this.courses = this.route.snapshot.data['courses']
   }
 
 }

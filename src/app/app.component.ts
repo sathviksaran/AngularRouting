@@ -14,10 +14,11 @@ import { CourseGuardService } from './course-guard.service';
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
     imports: [RouterOutlet, HomeComponent, AboutComponent, ContactComponent, CoursesComponent, RouterLink, RouterLinkActive],
-    providers: [AuthService, CourseGuardService]
+    providers: [CourseGuardService]
 })
 export class AppComponent implements OnInit {
   title = 'AngularRouting';
+  loggedIn: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, private authService: AuthService, private courseGuardService: CourseGuardService){
 

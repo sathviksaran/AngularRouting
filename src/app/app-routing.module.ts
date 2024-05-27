@@ -6,6 +6,8 @@ import { CoursesComponent } from "./courses/courses.component";
 import { ErrorComponent } from "./error/error.component";
 import { HomeComponent } from "./home/home.component";
 import { CourseGuardService } from "./course-guard.service";
+import { CanDeactivateGuardService } from "./candeactivate-guard.service";
+import { CourseResolveService } from "./course-resolve.service";
 // import { courseGuardFn } from "./course-guard.service";
 
 export const routes: Routes = [
@@ -13,10 +15,11 @@ export const routes: Routes = [
     // {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'contact', component: ContactComponent},
-    {path: 'courses', component: CoursesComponent, canActivate: [CourseGuardService]},
+    {path: 'contact', canDeactivate:[CanDeactivateGuardService], component: ContactComponent},
+    // {path: 'courses', component: CoursesComponent, canActivate: [CourseGuardService]},
+    {path: 'courses', component: CoursesComponent, resolve: {courses: CourseResolveService}},
     // {path: 'courses/course/:id', component: CourseComponent},
-    {path: 'courses', children: [
+    {path: 'courses', canActivateChild: [CourseGuardService], children: [
         {path: 'course/:id', component: CourseComponent}
         // {path: 'course/:name', component: CourseComponent}
     ]},
