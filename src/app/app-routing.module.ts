@@ -1,4 +1,4 @@
-import { Routes } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { CourseComponent } from "./courses/course/course.component";
@@ -8,6 +8,7 @@ import { HomeComponent } from "./home/home.component";
 import { CourseGuardService } from "./course-guard.service";
 import { CanDeactivateGuardService } from "./candeactivate-guard.service";
 import { CourseResolveService } from "./course-resolve.service";
+import { NgModule } from "@angular/core";
 // import { courseGuardFn } from "./course-guard.service";
 
 export const routes: Routes = [
@@ -28,7 +29,7 @@ export const routes: Routes = [
 
 // @NgModule({
 //     imports: [
-//         RouterModule.forRoot(routes)
+//         RouterModule.forRoot(routes, {enableTracing: true})
 //     ],
 //     exports: [
 //         RouterModule

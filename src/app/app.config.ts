@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withDebugTracing } from '@angular/router';
 
 // import { routes } from './app.routes';
 import { routes } from './app-routing.module';
@@ -10,5 +10,5 @@ import { CourseResolveService } from './course-resolve.service';
 import { CoursesService } from './Services/courses.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), AuthService, CourseGuardService, CanDeactivateGuardService, CourseResolveService, CoursesService],
+  providers: [provideRouter(routes, withDebugTracing()), AuthService, CourseGuardService, CanDeactivateGuardService, CourseResolveService, CoursesService],
 };
